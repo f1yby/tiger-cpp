@@ -1,0 +1,23 @@
+digraph {
+  INITIAL [fontcolor=blue];
+  
+  STRING [fontcolor=red];
+  STRING_ESCAPE_CHAR;
+  STRING_ESCAPE_CHAR_WHITESPACE;
+
+  COMMENT [fontcolor=red];
+
+  RESERVED_WORD [fontcolor=red];
+
+  INITIAL -> {
+    STRING
+    COMMENT
+    RESERVED_WORD
+  };
+
+  STRING -> STRING_ESCAPE_CHAR;
+
+  STRING_ESCAPE_CHAR -> STRING_ESCAPE_CHAR_WHITESPACE;
+  
+  STRING_ESCAPE_CHAR_WHITESPACE -> STRING;
+}
